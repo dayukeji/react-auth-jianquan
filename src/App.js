@@ -8,7 +8,7 @@ export default function App() {
     <div>
       <h1>Hello StackBlitz!</h1>
       <Routes>
-        <Route element={Admin}></Route>
+        <Route element={<Admin />} path="/Admin"></Route>
       </Routes>
     </div>
   );
