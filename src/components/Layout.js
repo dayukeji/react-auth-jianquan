@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 const Layout = () => {
   return (
     <div>
@@ -16,6 +16,7 @@ const Layout = () => {
           <Link to="/Protected">Protected</Link>
         </li>
       </ul>
+      <Outlet></Outlet>
     </div>
   );
 };

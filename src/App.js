@@ -11,11 +11,11 @@ export default function App() {
   return (
     <div>
       <Routes>
-        <Route element={<Layout />}>
-          <Route element={<Admin />} path="/Admin"></Route>
-          <Route element={<Login />} path="/Login"></Route>
-          <Route element={<Protected />} path="/Protected"></Route>
-          <Route element={<Public />} path="/Public"></Route>
+        <Route element={<Layout />} path="/">
+          <Route path="/Admin" element={<Admin />}></Route>
+          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/Protected" element={<Protected />}></Route>
+          <Route path="/Public" element={<Public />}></Route>
         </Route>
       </Routes>
     </div>
