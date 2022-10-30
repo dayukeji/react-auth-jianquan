@@ -1,12 +1,24 @@
 import React from 'react';
-
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../auth/auth';
 const Admin = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const auth = useAuth();
+
+  const form = location.state?.form?.pathname || '/';
   const handleSubmit = (event) => {
     event.preventDefault();
     let formData = new FormData(event.currentTarget);
     let userName = formData.get('name');
     console.log('userName', userName);
-    auth.signIn();
+
+    auth.signIn(
+      userName,
+      navigate(form, {
+        replace: true,
+      })
+    );
   };
   return (
     <div>

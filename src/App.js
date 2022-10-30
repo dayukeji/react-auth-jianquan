@@ -7,6 +7,7 @@ import Protected from './components/Protected';
 import Public from './components/Public';
 import Layout from './components/Layout';
 import AuthProvider from './auth/auth';
+import AuthRequired from './auth/AuthRequired';
 
 export default function App() {
   return (
@@ -16,7 +17,14 @@ export default function App() {
           <Route element={<Layout />} path="/">
             <Route path="/Admin" element={<Admin />}></Route>
             <Route path="/Login" element={<Login />}></Route>
-            <Route path="/Protected" element={<Protected />}></Route>
+            <Route
+              path="/Protected"
+              element={
+                <AuthRequired>
+                  <Protected />
+                </AuthRequired>
+              }
+            ></Route>
             <Route path="/Public" element={<Public />}></Route>
           </Route>
         </Routes>
