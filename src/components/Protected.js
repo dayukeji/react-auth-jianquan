@@ -1,7 +1,9 @@
 import React from 'react';
-
-const Admin = () => {
-  return <div>protected</div>;
+import { useAuth } from '../auth/auth';
+const Protect = () => {
+  const auth = useAuth();
+  console.log('auth', auth);
+  return <div>Protect</div>;
 };
 
-export default Admin;
+export default Protect;

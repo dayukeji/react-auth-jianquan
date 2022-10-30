@@ -7,7 +7,7 @@ const Layout = () => {
       <div>页面布局</div>
       <ul>
         <li>
-          <Link to="/">aa</Link>
+          <Link to="/login">aa</Link>
         </li>
         <li>
           <Link to="/Admin">Admin</Link>
