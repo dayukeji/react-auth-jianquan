@@ -6,18 +6,21 @@ import Login from './components/Login';
 import Protected from './components/Protected';
 import Public from './components/Public';
 import Layout from './components/Layout';
+import AuthProvider from './auth/auth';
 
 export default function App() {
   return (
-    <div>
-      <Routes>
-        <Route element={<Layout />} path="/">
-          <Route path="/Admin" element={<Admin />}></Route>
-          <Route path="/Login" element={<Login />}></Route>
-          <Route path="/Protected" element={<Protected />}></Route>
-          <Route path="/Public" element={<Public />}></Route>
-        </Route>
-      </Routes>
-    </div>
+    <AuthProvider>
+      <div>
+        <Routes>
+          <Route element={<Layout />} path="/">
+            <Route path="/Admin" element={<Admin />}></Route>
+            <Route path="/Login" element={<Login />}></Route>
+            <Route path="/Protected" element={<Protected />}></Route>
+            <Route path="/Public" element={<Public />}></Route>
+          </Route>
+        </Routes>
+      </div>
+    </AuthProvider>
   );
 }
