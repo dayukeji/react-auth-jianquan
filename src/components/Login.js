@@ -4,6 +4,7 @@ import { useAuth } from '../auth/auth';
 const Admin = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
   const auth = useAuth();
 
   const form = location.state?.form?.pathname || '/';
