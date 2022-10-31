@@ -33,7 +33,14 @@ export default function App() {
                 </AuthRequired>
               }
             ></Route>
-            <Route path="/Public" element={<Public />}></Route>
+            <Route
+              path="/Public"
+              element={
+                <AuthRequired requiredAuth={'public'}>
+                  <Public />
+                </AuthRequired>
+              }
+            ></Route>
             <Route path="/Noauth" element={<Noauth />}></Route>
           </Route>
         </Routes>
