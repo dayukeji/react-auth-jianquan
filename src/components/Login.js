@@ -15,18 +15,42 @@ const Admin = () => {
     console.log('userName', userName);
 
     auth.signIn(
-      userName,
+      {
+        userName,
+        role: 'public',
+      },
       navigate(form, {
         replace: true,
       })
     );
   };
+  const handleAdminSubmit = (event) => {
+    event.preventDefault();
+    let formData = new FormData(event.currentTarget);
+    let userName = formData.get('name');
+    console.log('userName', userName);
+
+    auth.signIn(
+      {
+        userName,
+        role: 'admin',
+      },
+      navigate(form, {
+        replace: true,
+      })
+    );
+  };
+
   return (
     <div>
       <h5>登录页</h5>
       <form onSubmit={handleSubmit}>
         <input type="text" name="name" placeholder="输入用户" />
         <button type={'submit'}>登录</button>
+      </form>
+      <form onSubmit={handleAdminSubmit}>
+        <input type="text" name="name" placeholder="输入用户" />
+        <button type={'submit'}>管理员登录</button>
       </form>
     </div>
   );
